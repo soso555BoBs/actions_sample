@@ -30,3 +30,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo '${{ toJSON(github) }}'
+
+      - name: echo all branches
+        run: |
+          # ブランチの一覧を取得し、特定のパターンに一致するブランチを検索
+          for branch in $(git branch -r --format="%(refname:short)"); do
+            echo "$branch"
+          done
+
+      - name: echo aaa branches
+        run: |
+          # ブランチの一覧を取得し、特定のパターンに一致するブランチを検索
+          for branch in $(git branch -r --format="%(refname:short)" | grep '.*aaa$'); do
+            echo "$branch"
+          done
+
