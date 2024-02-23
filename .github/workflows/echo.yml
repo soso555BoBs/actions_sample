@@ -31,6 +31,9 @@ jobs:
           echo Add other actions to build,
           echo '${{ toJSON(github) }}'
 
+      - name: Fetch latest changes from remote
+        run: git fetch origin
+        
       - name: echo all branches
         run: |
           # ブランチの一覧を取得し、特定のパターンに一致するブランチを検索
